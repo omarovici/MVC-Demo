@@ -1,0 +1,12 @@
+/Users/macbook/Documents/Demo.Presentation.Layer/Demo.Data.Access.Layer/bin/Debug/net8.0/Demo.Data.Access.Layer.deps.json
+/Users/macbook/Documents/Demo.Presentation.Layer/Demo.Data.Access.Layer/bin/Debug/net8.0/Demo.Data.Access.Layer.dll
+/Users/macbook/Documents/Demo.Presentation.Layer/Demo.Data.Access.Layer/bin/Debug/net8.0/Demo.Data.Access.Layer.pdb
+/Users/macbook/Documents/Demo.Presentation.Layer/Demo.Data.Access.Layer/obj/Debug/net8.0/Demo.Data.Access.Layer.csproj.AssemblyReference.cache
+/Users/macbook/Documents/Demo.Presentation.Layer/Demo.Data.Access.Layer/obj/Debug/net8.0/Demo.Data.Access.Layer.GeneratedMSBuildEditorConfig.editorconfig
+/Users/macbook/Documents/Demo.Presentation.Layer/Demo.Data.Access.Layer/obj/Debug/net8.0/Demo.Data.Access.Layer.AssemblyInfoInputs.cache
+/Users/macbook/Documents/Demo.Presentation.Layer/Demo.Data.Access.Layer/obj/Debug/net8.0/Demo.Data.Access.Layer.AssemblyInfo.cs
+/Users/macbook/Documents/Demo.Presentation.Layer/Demo.Data.Access.Layer/obj/Debug/net8.0/Demo.Data.Access.Layer.csproj.CoreCompileInputs.cache
+/Users/macbook/Documents/Demo.Presentation.Layer/Demo.Data.Access.Layer/obj/Debug/net8.0/Demo.Data.Access.Layer.dll
+/Users/macbook/Documents/Demo.Presentation.Layer/Demo.Data.Access.Layer/obj/Debug/net8.0/refint/Demo.Data.Access.Layer.dll
+/Users/macbook/Documents/Demo.Presentation.Layer/Demo.Data.Access.Layer/obj/Debug/net8.0/Demo.Data.Access.Layer.pdb
+/Users/macbook/Documents/Demo.Presentation.Layer/Demo.Data.Access.Layer/obj/Debug/net8.0/ref/Demo.Data.Access.Layer.dll

@@ -1,0 +1,15 @@
+/Users/macbook/Documents/Demo.Presentation.Layer/Demo.Business.Logic.Layer/bin/Debug/net8.0/Demo.Business.Logic.Layer.deps.json
+/Users/macbook/Documents/Demo.Presentation.Layer/Demo.Business.Logic.Layer/bin/Debug/net8.0/Demo.Business.Logic.Layer.dll
+/Users/macbook/Documents/Demo.Presentation.Layer/Demo.Business.Logic.Layer/bin/Debug/net8.0/Demo.Business.Logic.Layer.pdb
+/Users/macbook/Documents/Demo.Presentation.Layer/Demo.Business.Logic.Layer/bin/Debug/net8.0/Demo.Data.Access.Layer.dll
+/Users/macbook/Documents/Demo.Presentation.Layer/Demo.Business.Logic.Layer/bin/Debug/net8.0/Demo.Data.Access.Layer.pdb
+/Users/macbook/Documents/Demo.Presentation.Layer/Demo.Business.Logic.Layer/obj/Debug/net8.0/Demo.Business.Logic.Layer.csproj.AssemblyReference.cache
+/Users/macbook/Documents/Demo.Presentation.Layer/Demo.Business.Logic.Layer/obj/Debug/net8.0/Demo.Business.Logic.Layer.GeneratedMSBuildEditorConfig.editorconfig
+/Users/macbook/Documents/Demo.Presentation.Layer/Demo.Business.Logic.Layer/obj/Debug/net8.0/Demo.Business.Logic.Layer.AssemblyInfoInputs.cache
+/Users/macbook/Documents/Demo.Presentation.Layer/Demo.Business.Logic.Layer/obj/Debug/net8.0/Demo.Business.Logic.Layer.AssemblyInfo.cs
+/Users/macbook/Documents/Demo.Presentation.Layer/Demo.Business.Logic.Layer/obj/Debug/net8.0/Demo.Business.Logic.Layer.csproj.CoreCompileInputs.cache
+/Users/macbook/Documents/Demo.Presentation.Layer/Demo.Business.Logic.Layer/obj/Debug/net8.0/Demo.Bus.651E229F.Up2Date
+/Users/macbook/Documents/Demo.Presentation.Layer/Demo.Business.Logic.Layer/obj/Debug/net8.0/Demo.Business.Logic.Layer.dll
+/Users/macbook/Documents/Demo.Presentation.Layer/Demo.Business.Logic.Layer/obj/Debug/net8.0/refint/Demo.Business.Logic.Layer.dll
+/Users/macbook/Documents/Demo.Presentation.Layer/Demo.Business.Logic.Layer/obj/Debug/net8.0/Demo.Business.Logic.Layer.pdb
+/Users/macbook/Documents/Demo.Presentation.Layer/Demo.Business.Logic.Layer/obj/Debug/net8.0/ref/Demo.Business.Logic.Layer.dll
