@@ -57,6 +57,7 @@ public class EmployeesController : Controller
             if (ModelState.IsValid)
             {
                 _repository.Update(employee);
+                TempData["Success"] = "Employee Updated Successfully";
                 return RedirectToAction("Index");
             }
             return View(employee);
