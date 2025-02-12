@@ -11,4 +11,5 @@ public class Department
     public string Name { get; set; }
     [Required]
     public DateTime CreatedDate { get; set; }
+    public ICollection<Employee>? Employees { get; set; }
 }
