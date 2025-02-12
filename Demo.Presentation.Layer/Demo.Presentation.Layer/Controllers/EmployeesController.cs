@@ -77,6 +77,12 @@ public class EmployeesController : Controller
     }
     private IActionResult EmployeeControlHandler(int? id , string viewName)
     {
+        if (viewName == nameof(Edit))
+        {
+            var departments = _departmentRepository.GetAll();
+            SelectList departmentsList = new SelectList(departments, "Id", "Name");
+            ViewBag.Departments = departmentsList;
+        }
         if(!id.HasValue) return BadRequest();
         var employee = _repository.Get(id.Value);
         if(employee == null) return NotFound();
