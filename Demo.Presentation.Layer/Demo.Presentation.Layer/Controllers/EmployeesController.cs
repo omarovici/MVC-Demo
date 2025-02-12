@@ -1,16 +1,19 @@
 using Business.Logic.Layer.Interfaces;
 using Demo.Data.Access.Layer.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Demo.Presentation.Layer.Controllers;
 
 public class EmployeesController : Controller
 {
     private readonly IEmployeeRepository _repository;
+    private readonly IDepartmentRepository _departmentRepository;
 
-    public EmployeesController(IEmployeeRepository repository)
+    public EmployeesController(IEmployeeRepository repository, IDepartmentRepository departmentRepository)
     {
         _repository = repository;
+        _departmentRepository = departmentRepository;
     }
 
     public IActionResult Index()
@@ -21,6 +24,9 @@ public class EmployeesController : Controller
 
     public IActionResult Create()
     {
+        var departments = _departmentRepository.GetAll();
+        SelectList departmentsList = new SelectList(departments, "Id", "Name");
+        ViewBag.Departments = departmentsList;
         return View();
     }
     [HttpPost]
