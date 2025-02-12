@@ -18,7 +18,7 @@ public class EmployeesController : Controller
 
     public IActionResult Index()
     {
-        var employees = _repository.GetAll();
+        var employees = _repository.GetAllWithDepartment();
         return View(employees);
     }
 
