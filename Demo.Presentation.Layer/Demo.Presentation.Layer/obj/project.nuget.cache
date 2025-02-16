@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "cGNT5q+ErIY+KpO4j5O+S3hXrOPSRDaUsndAnWo/O3bDtl8v6OhC28NztO93czqasD3VRiMW9LZX/dXKot2avg==",
+  "dgSpecHash": "mjGEU8nN4m/JdPsAqtMSbkRqXTHltuZxLTk/s+NnqawgJawHrhxvmk7Pldf8bEhnSB6Ie6MZ8Ga9Klrt8+65IA==",
   "success": true,
   "projectFilePath": "/Users/macbook/Documents/MVC/MVC-Demo/Demo.Presentation.Layer/Demo.Presentation.Layer/Demo.Presentation.Layer.csproj",
   "expectedPackageFiles": [
+    "/Users/macbook/.nuget/packages/automapper/14.0.0/automapper.14.0.0.nupkg.sha512",
     "/Users/macbook/.nuget/packages/azure.core/1.38.0/azure.core.1.38.0.nupkg.sha512",
     "/Users/macbook/.nuget/packages/azure.identity/1.11.4/azure.identity.1.11.4.nupkg.sha512",
     "/Users/macbook/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
