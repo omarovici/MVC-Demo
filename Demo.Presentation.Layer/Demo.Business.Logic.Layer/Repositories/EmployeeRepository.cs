@@ -10,8 +10,8 @@ public class EmployeeRepository : GenaricRepository<Employee>, IEmployeeReposito
     public EmployeeRepository(DataContext dataContext) : base(dataContext)
     {
     }
-    public IEnumerable<Employee> GetAll(string address)
-    => _dbSet.Where(e => e.Address.ToLower() == address.ToLower()).ToList();
+    public IEnumerable<Employee> GetAllByName(string name)
+    => _dbSet.Where(e => e.Name.ToLower().Contains(name.ToLower())).Include(e => e.Department).ToList();
 
     public IEnumerable<Employee> GetAllWithDepartment()
     => _dbSet.Include(e => e.Department).ToList();

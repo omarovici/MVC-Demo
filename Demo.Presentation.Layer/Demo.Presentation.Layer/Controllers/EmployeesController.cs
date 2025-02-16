@@ -20,9 +20,13 @@ public class EmployeesController : Controller
         _mapper = mapper;
     }
 
-    public IActionResult Index()
+    public IActionResult Index(string? searchValue)
     {
-        var employees = _repository.GetAllWithDepartment();
+        var employees = Enumerable.Empty<Employee>();
+        if (string.IsNullOrEmpty(searchValue))
+            employees = _repository.GetAllWithDepartment();
+        else
+            employees = _repository.GetAllByName(searchValue);
         var employeesVM = _mapper.Map<IEnumerable<EmployeeViewModel>>(employees);
         return View(employeesVM);
     }
