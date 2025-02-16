@@ -1,6 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Demo.Presentation.Layer.Models;
+using Demo.Presentation.Layer.ViewModels;
 
 namespace Demo.Presentation.Layer.Controllers;
 

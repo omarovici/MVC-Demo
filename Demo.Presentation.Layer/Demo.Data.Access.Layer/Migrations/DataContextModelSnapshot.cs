@@ -22,7 +22,7 @@ namespace Demo.Data.Access.Layer.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Demo.Data.Access.Layer.Models.Department", b =>
+            modelBuilder.Entity("Demo.Data.Access.Layer.ViewModels.Department", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -45,7 +45,7 @@ namespace Demo.Data.Access.Layer.Migrations
                     b.ToTable("Departments");
                 });
 
-            modelBuilder.Entity("Demo.Data.Access.Layer.Models.Employee", b =>
+            modelBuilder.Entity("Demo.Data.Access.Layer.ViewModels.Employee", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -89,16 +89,16 @@ namespace Demo.Data.Access.Layer.Migrations
                     b.ToTable("Employees");
                 });
 
-            modelBuilder.Entity("Demo.Data.Access.Layer.Models.Employee", b =>
+            modelBuilder.Entity("Demo.Data.Access.Layer.ViewModels.Employee", b =>
                 {
-                    b.HasOne("Demo.Data.Access.Layer.Models.Department", "Department")
+                    b.HasOne("Demo.Data.Access.Layer.ViewModels.Department", "Department")
                         .WithMany("Employees")
                         .HasForeignKey("DepartmentId");
 
                     b.Navigation("Department");
                 });
 
-            modelBuilder.Entity("Demo.Data.Access.Layer.Models.Department", b =>
+            modelBuilder.Entity("Demo.Data.Access.Layer.ViewModels.Department", b =>
                 {
                     b.Navigation("Employees");
                 });
