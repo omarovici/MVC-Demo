@@ -1,3 +1,4 @@
+using System.Reflection;
 using Business.Logic.Layer.Interfaces;
 using Business.Logic.Layer.Repositories;
 using Demo.Data.Access.Layer.Data;
@@ -18,8 +19,10 @@ public class Program
         {
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
         });
+        builder.Services.AddAutoMapper(typeof(Program).Assembly);
         builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
         builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+        
         // builder.Services.AddScoped<IGenaricRepository<Department>, GenaricRepository<Department>>();
         
         var app = builder.Build();

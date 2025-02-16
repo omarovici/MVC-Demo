@@ -1,3 +1,4 @@
+using AutoMapper;
 using Business.Logic.Layer.Interfaces;
 using Demo.Data.Access.Layer.Models;
 using Demo.Presentation.Layer.ViewModels;
@@ -10,17 +11,20 @@ public class EmployeesController : Controller
 {
     private readonly IEmployeeRepository _repository;
     private readonly IDepartmentRepository _departmentRepository;
+    private readonly IMapper _mapper;
 
-    public EmployeesController(IEmployeeRepository repository, IDepartmentRepository departmentRepository)
+    public EmployeesController(IEmployeeRepository repository, IDepartmentRepository departmentRepository, IMapper mapper)
     {
         _repository = repository;
         _departmentRepository = departmentRepository;
+        _mapper = mapper;
     }
 
     public IActionResult Index()
     {
         var employees = _repository.GetAllWithDepartment();
-        return View(employees);
+        var employeesVM = _mapper.Map<IEnumerable<EmployeeViewModel>>(employees);
+        return View(employeesVM);
     }
 
     public IActionResult Create()
@@ -32,14 +36,15 @@ public class EmployeesController : Controller
     }
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult Create(Employee employee)
+    public IActionResult Create(EmployeeViewModel employeeVM)
     {
         if (ModelState.IsValid)
         {
+            var employee = _mapper.Map<Employee>(employeeVM);
             _repository.Create(employee);
             return RedirectToAction("Index");
         }
-        return View(employee);
+        return View(employeeVM);
     }
     public IActionResult Details(int? id) => EmployeeControlHandler(id , nameof(Details));
     public IActionResult Edit(int? id) => EmployeeControlHandler(id , nameof(Edit));
@@ -56,24 +61,25 @@ public class EmployeesController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult Edit([FromRoute] int id, Employee employee)
+    public IActionResult Edit([FromRoute] int id, EmployeeViewModel employeeVM)
     {
-        if (id != employee.Id) return BadRequest();
+        if (id != employeeVM.Id) return BadRequest();
         try
         {
             if (ModelState.IsValid)
             {
+                var employee = _mapper.Map<Employee>(employeeVM);
                 _repository.Update(employee);
                 TempData["Success"] = "Employee Updated Successfully";
                 return RedirectToAction("Index");
             }
-            return View(employee);
+            return View(employeeVM);
         }
         catch (Exception ex)
         {
             ModelState.AddModelError("", ex.Message);
         }
-        return View(employee);
+        return View(employeeVM);
         
     }
     private IActionResult EmployeeControlHandler(int? id , string viewName)
@@ -87,6 +93,7 @@ public class EmployeesController : Controller
         if(!id.HasValue) return BadRequest();
         var employee = _repository.Get(id.Value);
         if(employee == null) return NotFound();
-        return View(viewName , employee);
+        var employeeVM = _mapper.Map<EmployeeViewModel>(employee);
+        return View(viewName , employeeVM);
     }
 }
