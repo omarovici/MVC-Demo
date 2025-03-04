@@ -20,21 +20,9 @@ public class GenaricRepository<TEntity> : IGenaricRepository<TEntity> where TEnt
 
     public TEntity? Get(int id) => _dbSet.Find(id);
 
-    public int Create(TEntity entity)
-    {
-        _dbSet.Add(entity);
-        return _dataContext.SaveChanges();
-    }
+    public void Create(TEntity entity) => _dbSet.Add(entity);
 
-    public int Update(TEntity entity)
-    {
-        _dbSet.Update(entity);
-        return _dataContext.SaveChanges();
-    }
+    public void Update(TEntity entity) => _dbSet.Update(entity);
 
-    public int Delete(TEntity entity)
-    {
-        _dbSet.Remove(entity);
-        return _dataContext.SaveChanges();
-    }
+    public void Delete(TEntity entity) => _dbSet.Remove(entity);
 }

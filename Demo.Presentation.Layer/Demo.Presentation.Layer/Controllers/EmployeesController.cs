@@ -9,14 +9,12 @@ namespace Demo.Presentation.Layer.Controllers;
 
 public class EmployeesController : Controller
 {
-    private readonly IEmployeeRepository _repository;
-    private readonly IDepartmentRepository _departmentRepository;
     private readonly IMapper _mapper;
+    private readonly IUnitOfWork _repository;
 
-    public EmployeesController(IEmployeeRepository repository, IDepartmentRepository departmentRepository, IMapper mapper)
+    public EmployeesController(IUnitOfWork repository, IMapper mapper)
     {
         _repository = repository;
-        _departmentRepository = departmentRepository;
         _mapper = mapper;
     }
 
@@ -24,16 +22,16 @@ public class EmployeesController : Controller
     {
         var employees = Enumerable.Empty<Employee>();
         if (string.IsNullOrEmpty(searchValue))
-            employees = _repository.GetAllWithDepartment();
+            employees = _repository.Employees.GetAllWithDepartment();
         else
-            employees = _repository.GetAllByName(searchValue);
+            employees = _repository.Employees.GetAllByName(searchValue);
         var employeesVM = _mapper.Map<IEnumerable<EmployeeViewModel>>(employees);
         return View(employeesVM);
     }
 
     public IActionResult Create()
     {
-        var departments = _departmentRepository.GetAll();
+        var departments = _repository.Departments.GetAll();
         SelectList departmentsList = new SelectList(departments, "Id", "Name");
         ViewBag.Departments = departmentsList;
         return View();
@@ -45,7 +43,8 @@ public class EmployeesController : Controller
         if (ModelState.IsValid)
         {
             var employee = _mapper.Map<Employee>(employeeVM);
-            _repository.Create(employee);
+            _repository.Employees.Create(employee);
+            _repository.SaveChanges();
             return RedirectToAction("Index");
         }
         return View(employeeVM);
@@ -57,9 +56,10 @@ public class EmployeesController : Controller
     [ValidateAntiForgeryToken]
     public IActionResult ConfirmDelete(int? id)
     {
-        var employee = _repository.Get(id.Value);
+        var employee = _repository.Employees.Get(id.Value);
         if(employee == null) return NotFound();
-        _repository.Delete(employee);
+        _repository.Employees.Delete(employee);
+        _repository.SaveChanges();
         return RedirectToAction("Index");
     }
 
@@ -73,8 +73,11 @@ public class EmployeesController : Controller
             if (ModelState.IsValid)
             {
                 var employee = _mapper.Map<Employee>(employeeVM);
-                _repository.Update(employee);
-                TempData["Success"] = "Employee Updated Successfully";
+                _repository.Employees.Update(employee);
+                if (_repository.SaveChanges() > 0)
+                {
+                    TempData["Success"] = $"Employee {employeeVM.Name} Updated Successfully";
+                }
                 return RedirectToAction("Index");
             }
             return View(employeeVM);
@@ -90,12 +93,12 @@ public class EmployeesController : Controller
     {
         if (viewName == nameof(Edit))
         {
-            var departments = _departmentRepository.GetAll();
+            var departments = _repository.Departments.GetAll();
             SelectList departmentsList = new SelectList(departments, "Id", "Name");
             ViewBag.Departments = departmentsList;
         }
         if(!id.HasValue) return BadRequest();
-        var employee = _repository.Get(id.Value);
+        var employee = _repository.Employees.Get(id.Value);
         if(employee == null) return NotFound();
         var employeeVM = _mapper.Map<EmployeeViewModel>(employee);
         return View(viewName , employeeVM);

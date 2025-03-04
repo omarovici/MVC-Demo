@@ -4,7 +4,7 @@ public interface IGenaricRepository<TEntity> where TEntity : class
 {
     IEnumerable<TEntity> GetAll();
     TEntity? Get(int id);
-    int Create(TEntity entity);
-    int Update(TEntity entity);
-    int Delete(TEntity entity);
+    void Create(TEntity entity);
+    void Update(TEntity entity);
+    void Delete(TEntity entity);
 }
